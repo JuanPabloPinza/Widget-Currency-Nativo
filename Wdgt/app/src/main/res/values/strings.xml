@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Wdgt</string>
+    <string-array name="base_currencies">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>CAD</item>
+    </string-array>
+    <string-array name="target_currencies">
+        <item>MXN</item>
+        <item>EUR</item>
+        <item>JPY</item>
+    </string-array>
+</resources>

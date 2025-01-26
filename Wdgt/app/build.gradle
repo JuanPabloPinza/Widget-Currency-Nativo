@@ -1,0 +1,50 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace 'com.example.wdgt'
+    compileSdk 35
+    defaultConfig {
+        applicationId "com.example.wdgt"
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+
+        // Agrega la clave API a BuildConfig
+        buildConfigField "String", "API_KEY", "\"${API_KEY}\""
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    // Habilitar la generación de BuildConfig personalizada
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    // Retrofit para manejar las solicitudes HTTP
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    // Convertidor Gson para manejar JSON automáticamente
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    // Biblioteca para compatibilidad (si es necesario)
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}
